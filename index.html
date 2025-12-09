@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Frase Motivacional</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg1: #050816;
+      --bg2: #111827;
+      --accent: #f97316;
+      --accent-soft: rgba(249, 115, 22, 0.15);
+      --text-main: #e5e7eb;
+      --text-soft: #9ca3af;
+      --card-bg: rgba(15, 23, 42, 0.9);
+      --glass-border: rgba(148, 163, 184, 0.25);
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1e293b 0, #020617 50%, #000 100%);
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* luzes de fundo */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.6;
+      pointer-events: none;
+      mix-blend-mode: screen;
+    }
+
+    .orb.orb-1 {
+      width: 320px;
+      height: 320px;
+      background: #f97316;
+      top: -80px;
+      right: -40px;
+    }
+
+    .orb.orb-2 {
+      width: 280px;
+      height: 280px;
+      background: #38bdf8;
+      bottom: -80px;
+      left: -40px;
+    }
+
+    .container {
+      position: relative;
+      max-width: 680px;
+      width: 100%;
+    }
+
+    .card {
+      position: relative;
+      background: radial-gradient(circle at top left, #1f2937 0, #020617 55%);
+      border-radius: 24px;
+      padding: 32px 28px 26px;
+      border: 1px solid var(--glass-border);
+      box-shadow:
+        0 24px 60px rgba(0, 0, 0, 0.65),
+        0 0 0 1px rgba(15, 23, 42, 0.9);
+      overflow: hidden;
+      backdrop-filter: blur(16px);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 0 0, var(--accent-soft), transparent 60%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(249, 115, 22, 0.4);
+      background: rgba(15, 23, 42, 0.75);
+      color: var(--text-soft);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 10px rgba(249, 115, 22, 0.9);
+    }
+
+    .pill span:last-child {
+      opacity: 0.85;
+    }
+
+    .quote-mark {
+      font-size: 46px;
+      line-height: 1;
+      color: var(--accent);
+      opacity: 0.85;
+      margin-bottom: -10px;
+    }
+
+    .quote {
+      font-size: 1.7rem;
+      line-height: 1.4;
+      font-weight: 500;
+      color: var(--text-main);
+    }
+
+    .quote strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .quote span.highlight {
+      position: relative;
+      display: inline-block;
+      padding: 0 2px;
+    }
+
+    .quote span.highlight::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0.1em;
+      width: 100%;
+      height: 0.55em;
+      background: linear-gradient(
+        90deg,
+        rgba(249, 115, 22, 0.08),
+        rgba(249, 115, 22, 0.5),
+        rgba(249, 115, 22, 0.08)
+      );
+      border-radius: 999px;
+      z-index: -1;
+    }
+
+    .footer {
+      margin-top: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      font-size: 0.78rem;
+      color: var(--text-soft);
+    }
+
+    .tagline {
+      opacity: 0.75;
+    }
+
+    .tagline span {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(148, 163, 184, 0.4),
+        transparent
+      );
+    }
+
+    .meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      opacity: 0.7;
+    }
+
+    .dot-soft {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.9);
+    }
+
+    /* animações suaves */
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+      100% { transform: translateY(0px); }
+    }
+
+    @keyframes glow {
+      0% { box-shadow: 0 0 12px rgba(249, 115, 22, 0.4); }
+      50% { box-shadow: 0 0 22px rgba(249, 115, 22, 0.9); }
+      100% { box-shadow: 0 0 12px rgba(249, 115, 22, 0.4); }
+    }
+
+    .card {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .pill-dot {
+      animation: glow 2.4s ease-in-out infinite;
+    }
+
+    /* responsivo */
+    @media (max-width: 600px) {
+      body {
+        padding: 18px;
+      }
+
+      .card {
+        padding: 24px 18px 20px;
+      }
+
+      .quote {
+        font-size: 1.3rem;
+      }
+
+      .footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .line {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <div class="container">
+    <div class="card">
+      <div class="pill">
+        <div class="pill-dot"></div>
+        <span>Reflexão</span>
+        <span>autoestima & luz interior</span>
+      </div>
+
+      <div class="quote-mark">“</div>
+
+      <p class="quote">
+        Se você <span class="highlight"><strong>iluminar apenas suas imperfeições</strong></span>,
+        todas as suas qualidades
+        <span class="highlight">ficarão na sombra.</span>
+      </p>
+
+      <div class="footer">
+        <div class="tagline">
+          Lembre-se: <span>você é mais do que seus erros.</span>
+        </div>
+
+        <div class="line"></div>
+
+        <div class="meta">
+          <span class="dot-soft"></span>
+          <span>frase para guardar, não para se cobrar.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

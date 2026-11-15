@@ -83,6 +83,15 @@ h2{font-family:'Great Vibes',cursive;font-weight:400;font-size:clamp(2.6rem,7vw,
 .revelar{opacity:0;transform:translateY(40px);transition:opacity 1s ease,transform 1s ease}
 .revelar.visivel{opacity:1;transform:none}
 
+.selo-meses{font-family:"Dancing Script",cursive;font-size:clamp(1.4rem,4.5vw,1.9rem);margin:6px 0 0;
+  padding:6px 22px;border:1px solid rgba(246,210,139,.6);border-radius:40px;color:var(--dourado);
+  background:rgba(255,255,255,.06)}
+.contador{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:18px;max-width:900px;margin:0 auto}
+.num{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(8px);
+  border-radius:20px;padding:26px 12px;display:flex;flex-direction:column;gap:6px}
+.num b{font-size:clamp(2.2rem,7vw,3rem);color:var(--dourado);text-shadow:0 0 18px rgba(246,210,139,.5)}
+.num small{font-family:"Dancing Script",cursive;font-size:1.3rem;color:var(--rosa-claro)}
+
 /* ---------- Galeria polaroid ---------- */
 .galeria{display:flex;flex-wrap:wrap;justify-content:center;gap:34px;max-width:1100px;margin:0 auto}
 .polaroid{background:var(--creme);padding:14px 14px 56px;width:290px;max-width:100%;
@@ -197,8 +206,23 @@ footer{position:relative;z-index:2;padding:30px 16px 50px;font-family:'Dancing S
   <section class="hero">
     <span class="coracao-grande">❤️</span>
     <h1>Nossa História</h1>
+    <p class="selo-meses">✨ 7 meses de namoro ✨</p>
     <p class="sub">Alguns momentos passam.<br>Outros ficam para sempre guardados no coração —<br>e tu és o mais bonito de todos eles.</p>
-    <a href="#momentos" class="descer">continua a descer, meu amor ↓</a>
+    <a href="#meses" class="descer">continua a descer, meu amor ↓</a>
+  </section>
+
+  <section id="meses">
+    <div class="revelar">
+      <h2>7 Meses de Nós</h2>
+      <div class="linha"></div>
+    </div>
+    <div class="contador revelar">
+      <div class="num"><b>7</b><small>meses de amor</small></div>
+      <div class="num"><b>+210</b><small>dias juntos</small></div>
+      <div class="num"><b>+5 000</b><small>horas a pensar em ti</small></div>
+      <div class="num"><b>∞</b><small>vontade de continuar</small></div>
+    </div>
+    <p class="legenda revelar">E isto é só o começo da nossa história.</p>
   </section>
 
   <section id="momentos">
@@ -271,7 +295,9 @@ footer{position:relative;z-index:2;padding:30px 16px 50px;font-family:'Dancing S
 
 <script>
 // ---------- Texto da carta (edita à vontade) ----------
-const CARTA = `Cada sorriso, cada conversa e cada momento juntos transformaram-se em memórias que guardo com todo o carinho.
+const CARTA = `Hoje fazemos 7 meses, e eu continuo a apaixonar-me por ti todos os dias.
+
+Cada sorriso, cada conversa e cada momento juntos transformaram-se em memórias que guardo com todo o carinho.
 
 Esta página foi criada para guardar um pouco da nossa história e para te lembrar que há pessoas que tornam a vida mais bonita apenas por existirem.
 
